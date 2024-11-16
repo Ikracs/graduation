@@ -1,0 +1,1 @@
+from pretrained.face_parsing.bisenet import BiSeNetWrapper as BiSeNet

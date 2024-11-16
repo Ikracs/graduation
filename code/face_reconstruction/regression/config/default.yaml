@@ -1,0 +1,25 @@
+model: 'fvm'
+
+dataset_params:
+  datasets: ['HDTF', 'VFHQ', '2.5D', 'myData2']
+  num_frames: 8
+  expand_ratio: 1.8
+  img_size: 256
+
+train_params:
+  num_epochs: 200
+  lr: 2.0e-4
+  min_lr: 2.0e-8
+  batch_size: 256
+  loss_weights:
+    landmark: 100
+    photo: 10
+    identity: 0
+    id_regularization: 5.0e-4
+    exp_regularization: 3.0e-4
+    tex_regularization: 5.0e-4
+    id_consistency: 50
+    eye_closure: 3
+    lip_closure: 3
+    gaze: 3
+  save_freq: 50

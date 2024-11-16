@@ -1,0 +1,51 @@
+dataset_params:
+  datasets: ['HDTF', 'VFHQ', 'CCv2']
+  expand_ratio: 2.5
+  img_size: 256
+
+model_params:
+  generator_params:
+    img_size: 256
+    img_channel: 3
+    hidden_dim: 256
+    block_expansion: 64
+    max_features: 512
+    num_down_blocks: 2
+    reshape_channel: 32
+    num_resblocks: 6
+    mask_params:
+      num_classes: 3
+      num_blocks: 3
+      max_features: 256
+    motion_params:
+      num_blocks: 4
+      block_expansion: 32
+      max_features: 512
+  discriminator_params:
+    scales: [1]
+    num_channel: 3
+    block_expansion: 32                 
+    max_features: 512
+    num_blocks: 4
+    spectral: True
+
+train_params:
+  num_epochs: 500
+  generator_lr: 2.0e-4
+  discriminator_lr: 2.0e-4
+  min_lr: 2.0e-8
+  gan_loss: 'hinge'
+  batch_size: 16
+  scales: [1, 0.5, 0.25, 0.125]
+  checkpoint_freq: 50
+  loss_weights:
+    generator: 1
+    discriminator: 1
+    feature_matching: [10, 10, 10, 10]
+    perceptual: [10, 10, 10, 10, 10]
+    reconstruction: 10
+    id_consistency: 10
+    motion_consistency: 10
+    mask: 10
+    headpose: 20
+    regularization: 1

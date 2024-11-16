@@ -1,0 +1,16 @@
+model: 'faceverse'
+img_size: 256
+expand_ratio: 1.8
+num_samples: 8
+n_iter_1: 1000
+n_iter_2: 200
+loss_weights:
+  landmark: 1000
+  photo: 10
+  id_regularization: 3.0e-4
+  exp_regularization: 1.0e-4
+  tex_regularization: 3.0e-4
+  eye_closure: 5
+  lip_closure: 5
+  gaze: 5
+smooth: 3

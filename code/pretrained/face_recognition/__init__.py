@@ -1,0 +1,1 @@
+from pretrained.face_recognition.facenet import InceptionResnetV1Wrapper as FaceNet

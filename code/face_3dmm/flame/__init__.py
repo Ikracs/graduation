@@ -1,0 +1,1 @@
+from face_3dmm.flame.model import FLAMEModel
